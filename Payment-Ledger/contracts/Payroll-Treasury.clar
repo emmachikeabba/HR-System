@@ -496,10 +496,10 @@
     (let (
       (current-blockchain-time (unwrap-panic (get-block-info? time block-height)))
       (validated-period-end-date pay-period-ending-date)
-      (configured-pay-period-duration (var-get configured-pay-period-duration))
+      (current-pay-period-duration (var-get configured-pay-period-duration))
     )
       ;; Schedule subsequent payroll processing date
-      (var-set scheduled-next-payroll-date (+ validated-period-end-date configured-pay-period-duration))
+      (var-set scheduled-next-payroll-date (+ validated-period-end-date current-pay-period-duration))
       
       ;; Complete batch processing setup
       (ok true)
